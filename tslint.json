@@ -1,0 +1,21 @@
+{
+	"extends": "tslint:latest",
+	"rules": {
+		"indent": [true, "tabs"],
+		"eofline": true,
+		"max-line-length": [true, 120],
+		"semicolon": true,
+		"quotemark": [
+			true,
+			"single",
+			"avoid-escape"
+		],
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "prefer-conditional-expression": false,
+		"no-require-imports": false,
+		"no-var-requires": false,
+    "no-string-literal": false,
+		"arrow-parens": false
+	}
+}
