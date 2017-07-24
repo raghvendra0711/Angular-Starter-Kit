@@ -10,6 +10,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Ngtools = require('@ngtools/webpack');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 const SpritesmithPlugin = require('webpack-spritesmith');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const config = {
 
@@ -104,20 +105,32 @@ const config = {
 				exclude: /node_modules/,
 				use: 'url-loader?limit=100&name=img/[name].[ext]'
 			},
+			{
+				test: /\.(woff|woff2|eot|ttf|svg)$/,
+				exclude: /node_modules/,
+				use: 'url-loader?limit=1024&name=fonts/[name].[ext]'
+			},
 		]
 	},
 
 	plugins: [
 
+		/**
+		 * @link https://github.com/webpack/extract-text-webpack-plugin
+		 */
 		new ExtractTextPlugin({
 			filename: 'css/style.[hash].css'
 		}),
 
+		/**
+		 * @link https://github.com/ampedandwired/html-webpack-plugin
+		 */
 		new HtmlWebpackPlugin({
-			title: 'My Angular Title !!!!',
-			description: 'My Angular description !!!!',
+			title: 'My Angular Title',
+			description: 'My Angular description',
 			baseUrl: '/',
-			template: './src/index.html.ejs',
+			template: 'src/index.html.ejs',
+			chunksSortMode: 'dependency',
 			inject: 'body',
 			minify: {
 				removeComments: true,
@@ -134,6 +147,32 @@ const config = {
 		}),
 
 		new webpack.HotModuleReplacementPlugin(),
+
+		/**
+		 * @link http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
+		 */
+		new UglifyJSPlugin({
+			beautify: false,
+			output: {
+				comments: false
+			},
+			mangle: {
+				screw_ie8: true
+			},
+			compress: {
+				screw_ie8: true,
+				warnings: false,
+				conditionals: true,
+				unused: true,
+				comparisons: true,
+				sequences: true,
+				dead_code: true,
+				evaluate: true,
+				if_return: true,
+				join_vars: true,
+				negate_iife: false
+			},
+		}),
 
 		/**
 		 * @link https://www.npmjs.com/package/copy-webpack-plugin
