@@ -151,28 +151,28 @@ const config = {
 		/**
 		 * @link http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
 		 */
-		new UglifyJSPlugin({
-			beautify: false,
-			output: {
-				comments: false
-			},
-			mangle: {
-				screw_ie8: true
-			},
-			compress: {
-				screw_ie8: true,
-				warnings: false,
-				conditionals: true,
-				unused: true,
-				comparisons: true,
-				sequences: true,
-				dead_code: true,
-				evaluate: true,
-				if_return: true,
-				join_vars: true,
-				negate_iife: false
-			},
-		}),
+		// new UglifyJSPlugin({
+		// 	beautify: false,
+		// 	output: {
+		// 		comments: false
+		// 	},
+		// 	mangle: {
+		// 		screw_ie8: true
+		// 	},
+		// 	compress: {
+		// 		screw_ie8: true,
+		// 		warnings: false,
+		// 		conditionals: true,
+		// 		unused: true,
+		// 		comparisons: true,
+		// 		sequences: true,
+		// 		dead_code: true,
+		// 		evaluate: true,
+		// 		if_return: true,
+		// 		join_vars: true,
+		// 		negate_iife: false
+		// 	},
+		// }),
 
 		/**
 		 * @link https://www.npmjs.com/package/copy-webpack-plugin
