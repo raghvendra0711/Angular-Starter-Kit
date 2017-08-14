@@ -5,6 +5,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "noEmit": true,
@@ -12,8 +13,10 @@
     "importHelpers": true,
     "strictNullChecks": false,
     "lib": [
-      "dom",
-      "es6"
+      "es5",
+      "es2015",
+      "es2017",
+      "dom"
     ],
     "baseUrl": ".",
     "paths": {
@@ -43,6 +46,5 @@
   "buildOnSave": false,
   "atom": {
     "rewriteTsconfig": false
-  },
-  "skipLibCheck": true
+  }
 }

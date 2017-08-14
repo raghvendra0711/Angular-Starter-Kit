@@ -1,10 +1,13 @@
 # https://github.com/sasstools/sass-lint/
 
 files:
-  include: 'src/styles/**/*.sass'
+  include:
+    - 'src/styles/**/*.sass'
   ignore:
-    - 'src/styles/helpers/_sprites.sass'
-	- 'src/styles/helpers/_mixins.sass'
+    - 'src/styles/helpers/_functions.sass'
+    - 'src/styles/helpers/_mixins.sass'
+    - 'src/styles/helpers/_neat-settings.scss'
+    - 'src/styles/helpers/_variables.sass'
 
 options:
   formatter: stylish

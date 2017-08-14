@@ -8,12 +8,14 @@
 	<title><%= htmlWebpackPlugin.options.title %></title>
 	<meta name="description" content="<%= htmlWebpackPlugin.options.description %>">
 
+	<% if (webpackConfig.htmlElements.headTags) { %>
+	<%= webpackConfig.htmlElements.headTags %>
+	<% } %>
+
 	<base href="<%= htmlWebpackPlugin.options.baseUrl %>">
 
 </head>
 <body>
-
 	<app-root></app-root>
-
 </body>
 </html>

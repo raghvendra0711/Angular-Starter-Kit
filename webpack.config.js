@@ -12,17 +12,18 @@ const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin')
 const SpritesmithPlugin = require('webpack-spritesmith');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
+const METADATA = require('./configs/metadata-config');
+
 const config = {
 
 	entry: {
-		'polyfills': './src/scripts/polyfills.ts',
-		'main': './src/scripts/main.ts',
+		'main': './src/app/main.ts',
 	},
 
 	output: {
 		publicPath: '/',
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'js/[name].bundle.js'
+		filename: 'js/[name].[hash].js'
 	},
 
 	performance: {
@@ -34,7 +35,7 @@ const config = {
 	},
 
 	resolve: {
-		extensions: ['.ts', '.js', '.sass', '.scss', '.html'],
+		extensions: ['.ts', '.js', '.css','.sass', '.scss', '.html'],
 		modules: [
 			'node_modules',
 		],
@@ -126,9 +127,9 @@ const config = {
 		 * @link https://github.com/ampedandwired/html-webpack-plugin
 		 */
 		new HtmlWebpackPlugin({
-			title: 'My Angular Title',
-			description: 'My Angular description',
-			baseUrl: '/',
+			title: METADATA.title,
+			description: METADATA.description,
+			baseUrl: METADATA.baseUrl,
 			template: 'src/index.html.ejs',
 			chunksSortMode: 'dependency',
 			inject: 'body',
@@ -175,10 +176,18 @@ const config = {
 		// }),
 
 		/**
+		 * @link https://github.com/AngularClass/angular2-webpack-starter/tree/master/config/html-elements-plugin
+		 */
+		new HtmlElementsWebpackPlugin({
+			headTags: require('./configs/head-config'),
+		}),
+
+		/**
 		 * @link https://www.npmjs.com/package/copy-webpack-plugin
 		 */
 		new CopyWebpackPlugin([
-			{ from: 'src/img', to: 'img' }
+			{ from: 'src/img', to: 'img'},
+			{ from: 'src/assets', to: 'assets'},
 		]),
 
 		/**

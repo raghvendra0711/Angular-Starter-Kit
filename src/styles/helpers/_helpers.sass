@@ -1,20 +1,16 @@
 .container
-	@include grid-container
 	position: relative
-	width: 1140px
 	max-width: 100%
 	margin-right: auto
 	margin-left: auto
 
-.col-3
-	@include grid-column(4, $neat)
-	@include grid-visual
+.row
+	@include grid-container
 
 .img-fluid
 	max-width: 100%
 	height: auto
 
-.table
-	width: 100%
-	max-width: 100%
-	margin-bottom: 1rem
+.col-3
+	@include grid-column(4, $neat)
+	@include grid-visual
