@@ -11,6 +11,7 @@ const Ngtools = require('@ngtools/webpack');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 const SpritesmithPlugin = require('webpack-spritesmith');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const HotModuleReplacementPlugin = require('webpack/lib/HotModuleReplacementPlugin');
 
 const METADATA = require('./configs/metadata-config');
 
