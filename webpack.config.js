@@ -18,13 +18,13 @@ const METADATA = require('./configs/metadata-config');
 const config = {
 
 	entry: {
-		'main': './src/app/main.ts',
+		'main': './src/main.ts',
 	},
 
 	output: {
-		publicPath: '/',
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'js/[name].[hash].js'
+		filename: 'js/[name].[hash].js',
+		publicPath: '/',
 	},
 
 	performance: {
@@ -189,6 +189,7 @@ const config = {
 		new CopyWebpackPlugin([
 			{ from: 'src/img', to: 'img'},
 			{ from: 'src/assets', to: 'assets'},
+			{ from: 'src/meta'},
 		]),
 
 		/**

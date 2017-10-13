@@ -1,8 +1,7 @@
 # https://github.com/sasstools/sass-lint/
 
 files:
-  include:
-    - 'src/styles/**/*.sass'
+  include: 'src/styles/**/*.sass'
   ignore:
     - 'src/styles/helpers/_functions.sass'
     - 'src/styles/helpers/_mixins.sass'

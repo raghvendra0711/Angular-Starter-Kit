@@ -6,6 +6,7 @@
     "node_modules/codelyzer"
   ],
   "rules": {
+    "indent": [true, "tabs", 4],
     // Custom
     "trailing-comma": [false, {"multiline": "always", "singleline": "never"}],
     "interface-name": [false, "always-prefix"],
