@@ -7,15 +7,22 @@
 
 	<title><%= htmlWebpackPlugin.options.title %></title>
 	<meta name="description" content="<%= htmlWebpackPlugin.options.description %>">
-
+	<!-- base url -->
+	<base href="<%= htmlWebpackPlugin.options.baseUrl %>">
 	<% if (webpackConfig.htmlElements.headTags) { %>
+	<!-- Configured Head Tags  -->
 	<%= webpackConfig.htmlElements.headTags %>
 	<% } %>
 
-	<base href="<%= htmlWebpackPlugin.options.baseUrl %>">
+	<%= htmlWebpackPlugin.files.webpackManifest %>
 
+	<!-- CSS will be injected by webpack here -->
+	<!-- Preload link tags will be injected by webpack here -->
 </head>
 <body>
+
 	<app-root></app-root>
+
+	<!-- Scripts will be injected by webpack here -->
 </body>
 </html>
